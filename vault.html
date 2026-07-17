@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vault — Tandem Flow Studio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="top-bar">
+    <span class="logo">Tandem Flow Studio</span>
+    <nav class="nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="vault.html" class="active">Vault</a>
+    </nav>
+    <div class="spacer"></div>
+  </header>
+
+  <div class="vault-layout">
+    <aside class="vault-sidebar">
+      <div class="vault-sidebar-header vault-sidebar-cta">
+        <button id="new-note-btn" class="btn btn-primary btn-block" type="button">+ New note</button>
+      </div>
+      <div class="vault-sidebar-header">
+        <input type="text" id="vault-search" placeholder="Search notes…">
+      </div>
+      <div class="vault-tabs">
+        <button type="button" data-vault-tab="all" class="active">All</button>
+        <button type="button" data-vault-tab="folders">Folders</button>
+        <button type="button" data-vault-tab="tags">Tags</button>
+      </div>
+      <div id="folder-list"></div>
+      <div class="note-list-header">
+        <span>Notes</span>
+        <button id="new-folder-btn" class="btn btn-sm btn-secondary" type="button">+ Folder</button>
+      </div>
+      <div id="note-list"></div>
+      <div class="vault-sidebar-footer">
+        <button id="export-vault-btn" class="btn btn-sm btn-secondary btn-block" type="button">Export vault (.md)</button>
+      </div>
+    </aside>
+
+    <div class="vault-editor">
+      <div id="vault-empty" class="vault-empty">
+        <h2>No note selected</h2>
+        <p>Create a note or select one from the sidebar to start writing.</p>
+        <button type="button" class="btn btn-primary" onclick="document.getElementById('new-note-btn').click()">+ New note</button>
+      </div>
+      <div class="vault-editor-toolbar">
+        <button id="editor-toggle" class="btn btn-sm" type="button">Preview</button>
+        <span class="vault-hint">Markdown, [[wikilinks]], #tags, &gt; [!callouts], ==highlights==</span>
+      </div>
+      <div class="vault-editor-body">
+        <textarea id="editor-area" placeholder="Select or create a note to start writing…"></textarea>
+        <div id="preview-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/marked.min.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/vault.js"></script>
+</body>
+</html>

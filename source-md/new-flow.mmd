@@ -1,0 +1,67 @@
+flowchart TD
+    Home["🏠 Home<br/>Hero + best sellers + trust bar"]
+
+    Home --> Shop["🛒 Shop<br/>(mega-menu by category)"]
+    Home --> Dealers["📍 Find a Dealer"]
+    Home --> Support["🛠 Support & Resources"]
+    Home --> About["ℹ️ About Tandem"]
+    Home --> Account["👤 Account / Login"]
+
+    %% ---- SHOP: category tree ----
+    Shop --> C1["Lawnmowers"]
+    Shop --> C2["Trimmers & Brushcutters"]
+    Shop --> C3["Chainsaws"]
+    Shop --> C4["Blowers & Shredders"]
+    Shop --> C5["Pressure Washers & Pumps"]
+    Shop --> C6["Generators"]
+    Shop --> C7["Parts & Accessories"]
+
+    C1 --> PLP["Product Listing Page<br/>(filterable grid)"]
+    C2 --> PLP
+    C3 --> PLP
+    C4 --> PLP
+    C5 --> PLP
+    C6 --> PLP
+    C7 --> PLP
+
+    %% ---- TAG / FACET LAYER ----
+    PLP -. filter by tags .-> Tags["🏷 Facets<br/>Power: Petrol / Electric / Battery<br/>Shaft: Vertical / Horizontal<br/>Use: Domestic / Commercial<br/>Brand: Tandem / Wolf / Grasshopper<br/>Engine: Torx / Honda / B&S<br/>Price range"]
+
+    PLP --> PDP["Product Detail Page<br/>specs, engine info, safety notes,<br/>related parts, reviews"]
+
+    PDP --> AddCart["Add to Cart"]
+    PDP -. no online price/stock .-> DealerCTA["Check Availability<br/>at Dealer"]
+    DealerCTA --> Dealers
+
+    AddCart --> Cart["🛍 Cart"]
+    Cart --> Checkout["Checkout<br/>(guest or account)"]
+    Checkout --> Confirm["Order Confirmation"]
+    Confirm --> AutoReg["Auto: Product registered<br/>+ warranty logged"]
+    AutoReg --> Account
+
+    %% ---- ACCOUNT / LOYALTY ----
+    Account --> Orders["Order History"]
+    Account --> Warranty["Warranty & Service Reminders"]
+    Account --> Loyalty["Loyalty Points & Vouchers"]
+    Account --> Forum["Lawn Club Forum"]
+
+    %% ---- SUPPORT (was: Safety, Torx, Vertical/Horizontal Shaft, Contact) ----
+    Support --> SafetyInfo["Safety Guidelines"]
+    Support --> EngineInfo["Engine & Shaft Guide<br/>(Torx / Vertical vs Horizontal explained)"]
+    Support --> FAQ["FAQs / Manuals / Parts Lookup"]
+    Support --> Contact["Contact / Quote Request Form"]
+    Support --> Blog["The Avid Gardener<br/>(tips, tagged to matching categories)"]
+    Blog -. cross-sell .-> PLP
+
+    %% ---- DEALERS ----
+    Dealers --> Map["Outlet Map<br/>SA + Namibia, Lesotho, Swaziland,<br/>Zambia, Zimbabwe, Mauritius"]
+
+    %% ---- ABOUT (was: About + footer credibility content) ----
+    About --> Story["Company Story / Factory / Manufacturing"]
+    About --> Partners["Partner Brands<br/>(Torx, Stiga, Grasshopper, Honda)"]
+
+    classDef nav fill:#e8f4ea,stroke:#4a7c59,color:#1a1a1a;
+    classDef funnel fill:#fff3d6,stroke:#c9922f,color:#1a1a1a;
+    classDef dropped fill:#f7f7f7,stroke:#bbb,color:#777,stroke-dasharray: 2 2;
+    class Home,Shop,Dealers,Support,About,Account nav;
+    class PLP,PDP,AddCart,Cart,Checkout,Confirm funnel;

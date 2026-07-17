@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio — Tandem Flow Studio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="top-bar">
+    <span class="logo">Tandem Flow Studio</span>
+    <nav class="nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="vault.html">Vault</a>
+    </nav>
+    <div class="spacer"></div>
+    <span id="project-name">Loading…</span>
+    <span id="save-indicator">Saved</span>
+    <div class="mode-area">
+      <button id="mode-toggle" class="btn btn-sm" title="Toggle edit / view mode" type="button">Edit</button>
+    </div>
+  </header>
+
+  <div class="studio-layout">
+    <aside class="left-toolbar" id="drawing-tools">
+      <button data-tool="select" title="Select (V)" class="active" type="button">↖</button>
+      <div class="toolbar-divider"></div>
+      <button data-tool="rect" title="Rectangle (R)" type="button">▭</button>
+      <button data-tool="circle" title="Circle (C)" type="button">◯</button>
+      <button data-tool="diamond" title="Diamond" type="button">◇</button>
+      <button data-tool="hex" title="Hexagon" type="button">⬡</button>
+      <button data-tool="ellipse" title="Ellipse" type="button">⬭</button>
+      <button data-tool="parallelogram" title="Parallelogram" type="button">▱</button>
+      <div class="toolbar-divider"></div>
+      <button data-tool="edge" title="Connect / Edge (E)" type="button">⤻</button>
+      <button data-tool="text" title="Text (T)" type="button">T</button>
+      <button data-tool="freehand" title="Freehand / Pen (P)" type="button">✎</button>
+      <div class="toolbar-divider"></div>
+      <button id="undo-btn" title="Undo (Ctrl+Z)" type="button">↩</button>
+      <button id="redo-btn" title="Redo (Ctrl+Y)" type="button">↪</button>
+      <div class="toolbar-divider"></div>
+      <button id="zoom-in" title="Zoom in" type="button">+</button>
+      <button id="zoom-out" title="Zoom out" type="button">−</button>
+      <button id="zoom-fit" title="Fit all" type="button">⊞</button>
+      <button id="grid-toggle" title="Toggle grid" type="button">▦</button>
+      <button id="auto-layout" title="Auto layout" type="button">⊙</button>
+      <div class="toolbar-divider"></div>
+      <div class="export-dropdown">
+        <button title="Export" type="button">⤓</button>
+        <div class="export-menu">
+          <button id="export-png" type="button">Export PNG</button>
+          <button id="export-jpg" type="button">Export JPEG</button>
+          <button id="export-pdf" type="button">Export PDF</button>
+          <button id="export-json" type="button">Export JSON</button>
+        </div>
+      </div>
+    </aside>
+
+    <div id="canvas-area"></div>
+
+    <aside id="right-panel">
+      <div class="panel-tabs">
+        <button data-panel-tab="props" class="active" type="button">Properties</button>
+        <button data-panel-tab="layers" type="button">Layers</button>
+        <button data-panel-tab="notes" type="button">Notes</button>
+      </div>
+      <div id="props-content" class="panel-tab-content active"></div>
+      <div id="layers-content" class="panel-tab-content"></div>
+      <div id="notes-content" class="panel-tab-content"></div>
+      <div class="minimap-wrap">
+        <h4>Minimap</h4>
+        <canvas id="minimap-canvas" width="240" height="80"></canvas>
+      </div>
+    </aside>
+  </div>
+
+  <button id="panel-toggle" title="Toggle panel" type="button">☰</button>
+
+  <footer class="status-bar">
+    <span class="edit-only">Press ? for shortcuts</span>
+    <span class="spacer"></span>
+  </footer>
+
+  <script src="assets/vendor/d3.min.js"></script>
+  <script src="assets/vendor/marked.min.js"></script>
+  <script src="assets/vendor/jspdf.umd.min.js"></script>
+  <script src="assets/vendor/html2canvas.min.js"></script>
+  <script src="assets/js/data-old.js"></script>
+  <script src="assets/js/data-new.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/canvas.js"></script>
+  <script src="assets/js/tools.js"></script>
+  <script src="assets/js/panels.js"></script>
+  <script src="assets/js/studio.js"></script>
+</body>
+</html>

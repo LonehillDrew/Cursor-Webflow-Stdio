@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tandem Flow Studio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="top-bar">
+    <span class="logo">Tandem Flow Studio</span>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="vault.html">Vault</a>
+    </nav>
+    <div class="spacer"></div>
+  </header>
+
+  <main class="dashboard-layout" id="dashboard-drop">
+    <div class="dashboard-header">
+      <div>
+        <h1>Tandem Flow Studio</h1>
+        <p class="dashboard-sub">Create and edit site-map flow charts. Data stays in this browser (localStorage).</p>
+      </div>
+      <div class="dashboard-actions">
+        <button id="new-project-btn" class="btn btn-primary" type="button">+ New chart</button>
+        <button id="dup-old-btn" class="btn btn-secondary" type="button">Duplicate Old Flow</button>
+        <button id="dup-new-btn" class="btn btn-secondary" type="button">Duplicate New Flow</button>
+        <button id="import-btn" class="btn btn-secondary" type="button">Import / Restore</button>
+        <button id="backup-btn" class="btn btn-secondary" type="button">Backup all</button>
+        <input type="file" id="import-input" accept=".json">
+      </div>
+    </div>
+
+    <section class="hero-section">
+      <div id="hero-cards" class="hero-cards"></div>
+    </section>
+
+    <section class="charts-section">
+      <h2 class="section-title">Your charts</h2>
+      <div id="project-list" class="project-list"></div>
+    </section>
+
+    <p class="dashboard-tip">Tip: charts and vault notes are stored locally in this browser. Use Backup all to download a full JSON backup, then Import / Restore to bring it back.</p>
+  </main>
+
+  <script src="assets/js/data-old.js"></script>
+  <script src="assets/js/data-new.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

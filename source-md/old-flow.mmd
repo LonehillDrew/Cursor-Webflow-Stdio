@@ -1,0 +1,66 @@
+flowchart TD
+    Home["🏠 Home<br/>tandem.co.za"]
+
+    %% Top nav
+    Home --> About["About"]
+    Home --> Safety["Safety"]
+    Home --> Dealerships["Dealerships<br/>(Find an Outlet)"]
+    Home --> ProdReg["Product Registration"]
+    Home --> Members["Members / Loyalty"]
+    Home --> VShaft["Vertical Shaft"]
+    Home --> Torx["Torx<br/>(Engines)"]
+    Home --> HShaft["Horizontal Shaft"]
+    Home --> AvidGardener["The Avid Gardener<br/>(Blog / News)"]
+    Home --> Login["Log In / Register<br/>(account)"]
+
+    %% Product categories (from homepage grid)
+    Home --> Products["Product Categories"]
+    Products --> P1["Electric Trimmers"]
+    Products --> P2["Blowers"]
+    Products --> P3["Electric Lawnmowers"]
+    Products --> P4["Petrol Lawnmowers"]
+    Products --> P5["Cylinder Lawnmowers"]
+    Products --> P6["Ride-On Mowers"]
+    Products --> P7["Push Mowers"]
+    Products --> P8["Trimmers"]
+    Products --> P9["Brushcutters"]
+    Products --> P10["Chainsaws"]
+    Products --> P11["High Pressure Washers"]
+    Products --> P12["Pumps"]
+    Products --> P13["Generators"]
+    Products --> P14["Shredders"]
+    Products --> P15["ZeroTurn / Grasshopper<br/>Ride-On Mowers"]
+
+    %% Product detail flow
+    P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10 & P11 & P12 & P13 & P14 & P15 --> ProductDetail["Product Detail Page"]
+    ProductDetail --> Dealerships
+
+    %% Dealership / outlet flow
+    Dealerships --> OutletMap["Outlet Map / List<br/>(100+ outlets: SA, Namibia, Lesotho,<br/>Swaziland, Zambia, Zimbabwe, Mauritius)"]
+
+    %% Loyalty / registration flow
+    ProdReg --> RegForm["Registration Form"]
+    RegForm --> LoyaltyPoints["Loyalty Points Account"]
+    Members --> LoyaltyPoints
+    LoyaltyPoints --> Perks["Service Reminders,<br/>Warranty Records,<br/>Lawn Club Forum,<br/>Discount Vouchers"]
+
+    %% Blog flow
+    AvidGardener --> BlogList["Blog Post Listing"]
+    BlogList --> BlogPost["Blog Post Detail"]
+    AvidGardener --> BlogSignup["Newsletter Signup"]
+
+    %% Contact / conversion flow
+    Home --> Contact["Contact Us<br/>(Quote Request Form)"]
+    Contact --> ContactSuccess["Confirmation Message"]
+
+    %% Partner links (external)
+    Home --> Partners["Partner Sites (external)"]
+    Partners --> Torx2["torx.co.za"]
+    Partners --> Stiga["stiga.com"]
+    Partners --> Grasshopper["grasshoppermowers.com"]
+    Partners --> Honda["engines.honda.com"]
+
+    classDef page fill:#e8f4ea,stroke:#4a7c59,color:#1a1a1a;
+    classDef ext fill:#f0f0f0,stroke:#999,color:#555,stroke-dasharray: 3 3;
+    class Home,About,Safety,Dealerships,ProdReg,Members,VShaft,Torx,HShaft,AvidGardener,Login,Products,ProductDetail,OutletMap,RegForm,LoyaltyPoints,Perks,BlogList,BlogPost,BlogSignup,Contact,ContactSuccess page;
+    class Partners,Torx2,Stiga,Grasshopper,Honda ext;
